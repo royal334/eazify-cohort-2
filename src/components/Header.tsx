@@ -1,6 +1,15 @@
-import { Menu } from "lucide-react"
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
 function Header() {
+
+     const [isOpen, setIsOpen] = useState(false);
+
+     function toggleMenu(){
+          setIsOpen(prev => !prev)
+     }
+     
+
   return (
     <header id="header" className="container sticky top-0 left-0 right-0 z-50 px-4 mx-auto bg-white shadow-lg rounded-xl">
           <div className="container flex items-center justify-between px-4 py-8">
@@ -21,9 +30,27 @@ function Header() {
                </nav>
 
                <nav className="md:hidden">
-                    <Menu />
+                    <Menu onClick={toggleMenu}/>
                </nav>
                
+               {
+                    isOpen && (
+                         <div className="absolute top-0 left-0 right-0 h-[50vh] pt-4 bg-white shadow-lg rounded-xl md:hidden">
+                              <div className="flex justify-end px-4 mt-6  w-[96%]">
+                                   <X onClick={toggleMenu}/>
+                              </div>
+                              <ul className="flex flex-col items-center justify-center gap-4 p-4">
+                                   <li className="font-semibold" onClick={toggleMenu}><a href="/" className="text-bright-blue">Home</a></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><a href="#about"  className="text-bright-blue">About</a></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><a href="/services" className="text-bright-blue">Services</a></li>
+                                   <li className="font-semibold" onClick={toggleMenu}><a href="/contact"  className="text-bright-blue">Contact</a></li>
+                              </ul>
+                              <div className="flex justify-center mb-4">
+                                   <button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue">Register Here</button>
+                              </div>
+                         </div>
+                    )
+               }
                
                
           </div>
