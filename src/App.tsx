@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import Hero from "./components/Hero"
 import About from "./components/About"
 import Courses from "./components/Courses"
+import Footer from "./components/Footer"
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Hero/>
       <About/>
       <Courses/>
+      <Footer/>
 
     </>
   )
