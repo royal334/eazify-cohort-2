@@ -38,26 +38,42 @@ function Form(props: PropTypes) {
      // }
 
      async function onSubmit(data: FormDataTypes) {
-          console.log(data)
+          
           const formData = new FormData();
           
-      
           formData.append("access_key", '458bb391-b838-4101-867c-d960cb047497');
-      
-          // const object = Object.fromEntries(formData);
-          // const json = JSON.stringify(object);
-      
+          formData.append("course", data.course);
+          formData.append("firstname", data.firstname);
+          formData.append("lastname", data.lastname);
+          formData.append("email", data.email);
+          formData.append("phoneNum", data.phoneNum);
+          
+          
+          try{
           const res = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
+               method: "POST",
+               body: formData,
           }).then((res) => res.json());
       
           if (res.success) {
-            console.log("Success", res);
+               console.log('Success', res)
+               // Reset form values after successful submission
+               setValue('course', 'Select course')
+               setValue('firstname', '')
+               setValue('lastname', '')
+               setValue('email', '')
+               setValue('phoneNum', '')
+               props.setCourse("Select course");
+
           }
           else{
-               console.log('Error', res)
+               console.error('Error', res)
+               alert('Error submitting form. Please try again later.')
           }
+     } catch(error){
+               console.error('Error submitting form:', error);
+               alert('An error occurred while submitting the form. Please try again later.');
+     }
         };
 
 
@@ -69,7 +85,7 @@ function Form(props: PropTypes) {
                     <div className="flex flex-col">
                               <label htmlFor="course" className="text-sky-blue">Select Course</label>
                               <select className="p-2 border rounded text-bright-blue" id="course" {...register('course', {required: 'Course selection is required'})} value={props.course} onChange={(e) => props.setCourse(e.target.value)} aria-invalid={errors.course ? "true" : "false"}>
-                                   <option value="" disabled>Select course</option>
+                                   <option value="" disabled selected>Select course</option>
                                    <option value="Frontend Development">Frontend Development</option>
                                    <option value="Cybersecurity">Cybersecurity</option>
                                    <option value="AI Development">AI Development</option>
@@ -83,7 +99,7 @@ function Form(props: PropTypes) {
                               <input
                               id="firstname"
                               type="text"
-                              placeholder="e.g. Stephen "
+                              placeholder="e.g. Stephen"
                               {...register('firstname', {required: 'First name is required'})}
                               className="p-2 border border-charcoal-black rounded text-bright-blue"
                               aria-invalid={errors.firstname ? "true" : "false"}
