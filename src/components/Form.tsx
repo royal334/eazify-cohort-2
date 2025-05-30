@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form"
+import Swal from 'sweetalert2'
 
 type FormDataTypes = {
      course:string
@@ -65,14 +66,19 @@ function Form(props: PropTypes) {
                setValue('phoneNum', '')
                props.setCourse("Select course");
 
-          }
-          else{
-               console.error('Error', res)
-               alert('Error submitting form. Please try again later.')
+               Swal.fire({
+                    title: "Good Job!",
+                    text: "Your form has been submitted successfully!",
+                    icon: "success"
+                  });
+
           }
      } catch(error){
-               console.error('Error submitting form:', error);
-               alert('An error occurred while submitting the form. Please try again later.');
+          Swal.fire({
+               title: "Oops!",
+               text: "There was an error submitting your form. Please try again.",
+               icon: "warning"
+             });
      }
         };
 
