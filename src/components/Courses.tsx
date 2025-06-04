@@ -1,5 +1,6 @@
 import Course from "./Course"
 
+
 type PropTypes = {
      setCourse: (course: string) => void
 }
@@ -16,7 +17,7 @@ const items = [
           {    id: 2,
                title: "Blockchain Development",
                description: "Master Blockchain Development! Learn Solidity, smart contracts, dApps, and security best practices. Build real-world projects and launch your career. Join our expert-led cohort today!",
-               img: "/images/blockchain.jpg" 
+               img: "/images/blockchain1.jpg" 
           },
           
           {    id: 3,
@@ -28,12 +29,12 @@ const items = [
           {    id: 4,
                title: "Cybersecurity", 
                description: "Become a Cybersecurity Pro! Master network security, cloud security, incident response, and ethical hacking. Build a strong portfolio and launch your career.", 
-               img: "/images/cybersecurity.jpg" 
+               img: "/images/cybersecurity1.jpg" 
           }
      ]
 function Courses(props: PropTypes) {
   return (
-     <section id='courses'>
+     <section id='courses' >
           <div  className="container px-4 py-16 mx-auto">
                <h2 className="text-3xl font-bold text-center text-charcoal-black md:text-4xl">Our Courses</h2>
                <p className="mt-4 text-lg font-semibold text-center text-gray-700">Explore our range of courses designed to help you master the latest technologies and skills.</p>

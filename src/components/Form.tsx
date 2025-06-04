@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2'
+import { motion } from "motion/react";
 
 type FormDataTypes = {
      course:string
@@ -90,19 +91,20 @@ function Form(props: PropTypes) {
                     <h2 className="text-2xl md:text-4xl font-semibold text-charcoal-black">Register for Eazify Innovations Cohort 2.0</h2>
                     <div className="flex flex-col">
                               <label htmlFor="course" className="text-sky-blue">Select Course</label>
-                              <select className="p-2 border rounded text-bright-blue" id="course" {...register('course', {required: 'Course selection is required'})} value={props.course} onChange={(e) => props.setCourse(e.target.value)} aria-invalid={errors.course ? "true" : "false"}>
+                              < motion.select initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}} className="p-2 border rounded text-bright-blue" id="course" {...register('course', {required: 'Course selection is required'})} value={props.course} onChange={(e) => props.setCourse(e.target.value)} aria-invalid={errors.course ? "true" : "false"}>
                                    <option value="" disabled selected>Select course</option>
                                    <option value="Frontend Development">Frontend Development</option>
                                    <option value="Cybersecurity">Cybersecurity</option>
                                    <option value="AI Development">AI Development</option>
                                    <option value="Blockchain Development">Blockchain Development</option>
-                              </select>
+                              </motion.select>
                               <span className="text-red-500">{errors.course?.message}</span>
                          </div>
                     <div className="flex flex-col md:flex-row gap-4">
                          <div className="flex flex-col md:w-1/2">
                               <label htmlFor="firstname" className="text-sky-blue">First name</label>
-                              <input
+                              <motion.input
+                              initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}}
                               id="firstname"
                               type="text"
                               placeholder="e.g. Stephen"
@@ -114,7 +116,8 @@ function Form(props: PropTypes) {
                          </div>
                          <div className="flex flex-col md:w-1/2">
                               <label htmlFor="lastname" className="text-sky-blue">Last name</label>
-                              <input
+                              <motion.input
+                              initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}}
                               id="lastname"
                               type="text"
                               placeholder="e.g. King"
@@ -128,7 +131,8 @@ function Form(props: PropTypes) {
                <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex flex-col md:w-1/2">
                          <label htmlFor="email" className="text-sky-blue">Email Address</label>
-                         <input
+                         <motion.input
+                         initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}}
                     type="email"
                     placeholder="e.g. stephenking@lorem.com"
                     className="p-2 border rounded text-bright-blue  border-charcoal-black"
@@ -145,7 +149,8 @@ function Form(props: PropTypes) {
                
                <div className="flex flex-col md:w-1/2">
                     <label htmlFor="phoneNum" className="text-sky-blue">Phone Number</label>
-                    <input
+                    <motion.input
+                    initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}}
                     id="phoneNum"
                     type="tel"
                     placeholder="e.g. +1 234 567 890"
@@ -157,7 +162,7 @@ function Form(props: PropTypes) {
                     </div>
                </div>
                  
-                 <button disabled={!isValid} type="submit" className="bg-bright-blue disabled:bg-sky-blue disabled:cursor-not-allowed text-white p-2 rounded font-semibold cursor-pointer w-full">Next Step</button>
+                 <button disabled={!isValid} type="submit" className="bg-bright-blue disabled:bg-sky-blue disabled:cursor-not-allowed text-white p-2 rounded font-semibold cursor-pointer w-full">Register</button>
              </form>
           </div>
      </section>
