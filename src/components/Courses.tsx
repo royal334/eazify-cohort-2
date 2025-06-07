@@ -1,5 +1,5 @@
 import Course from "./Course"
-
+import { easeIn, motion } from "motion/react"
 
 type PropTypes = {
      setCourse: (course: string) => void
@@ -34,7 +34,7 @@ const items = [
      ]
 function Courses(props: PropTypes) {
   return (
-     <section id='courses' >
+     <motion.section id='courses' initial={{opacity:0, y:80}} whileInView={{opacity:1, y:0}} transition={{duration:2, ease:easeIn}} viewport={{once:true, amount:0.05 }} >
           <div  className="container px-4 py-16 mx-auto">
                <h2 className="text-3xl font-bold text-center text-charcoal-black md:text-4xl">Our Courses</h2>
                <p className="mt-4 text-lg font-semibold text-center text-gray-700">Explore our range of courses designed to help you master the latest technologies and skills.</p>
@@ -56,7 +56,7 @@ function Courses(props: PropTypes) {
 
 
           
-     </section>
+     </motion.section>
   )
 }
 

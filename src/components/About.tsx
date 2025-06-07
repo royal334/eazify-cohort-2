@@ -1,8 +1,8 @@
-import { easeInOut, motion } from "motion/react"
+import { easeOut, motion } from "motion/react"
 
 function About() {
   return (
-     <motion.section id="about" initial={{opacity:0, scale:0.5, filter:'blur(10px)'}} whileInView={{opacity:1, scale:1, filter:'blur(0px)'}} transition={{duration:2, ease:easeInOut}} viewport={{once:true, amount:0.3 }}>
+     <motion.section id="about" initial={{opacity:0, y:80}} whileInView={{opacity:1, y:0}} transition={{duration:2, ease:easeOut}} viewport={{once:true, amount:0.2}}>
        <div  className="container flex flex-col items-center justify-between gap-8 px-4 py-10 mx-auto m md:flex-row md:px-0 md:py-16">
             <div className="flex flex-col self-start w-full md:w-1/2">
                <h2 className="text-3xl font-bold text-charcoal-black md:text-4xl">Join Us and Level Up Your Tech Skills with Our Immersive Cohort!</h2>

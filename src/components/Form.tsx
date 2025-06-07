@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form"
 import Swal from 'sweetalert2'
-import { motion } from "motion/react";
+import { easeIn, motion } from "motion/react"
+//import { toast } from "react-toastify";
 
 type FormDataTypes = {
      course:string
@@ -35,9 +36,7 @@ function Form(props: PropTypes) {
           setValue('course', props.course)
      }, [props.course, setValue])
 
-     // function onSubmit( data: FormDataTypes){
-     //      console.log(data)
-     // }
+
 
      async function onSubmit(data: FormDataTypes) {
           
@@ -91,7 +90,7 @@ function Form(props: PropTypes) {
                     <h2 className="text-2xl md:text-4xl font-semibold text-charcoal-black">Register for Eazify Innovations Cohort 2.0</h2>
                     <div className="flex flex-col">
                               <label htmlFor="course" className="text-sky-blue">Select Course</label>
-                              < motion.select initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1}} viewport={{once:true, amount:1}} className="p-2 border rounded text-bright-blue" id="course" {...register('course', {required: 'Course selection is required'})} value={props.course} onChange={(e) => props.setCourse(e.target.value)} aria-invalid={errors.course ? "true" : "false"}>
+                              < motion.select initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0}} transition={{duration:1, ease:easeIn}} viewport={{once:true, amount:1}} className="p-2 border rounded text-bright-blue" id="course" {...register('course', {required: 'Course selection is required'})} value={props.course} onChange={(e) => props.setCourse(e.target.value)} aria-invalid={errors.course ? "true" : "false"}>
                                    <option value="" disabled selected>Select course</option>
                                    <option value="Frontend Development">Frontend Development</option>
                                    <option value="Cybersecurity">Cybersecurity</option>
@@ -162,7 +161,7 @@ function Form(props: PropTypes) {
                     </div>
                </div>
                  
-                 <button disabled={!isValid} type="submit" className="bg-bright-blue disabled:bg-sky-blue disabled:cursor-not-allowed text-white p-2 rounded font-semibold cursor-pointer w-full">Register</button>
+                 <button disabled={!isValid} type="submit"  className="bg-bright-blue disabled:bg-sky-blue disabled:cursor-not-allowed text-white p-2 rounded font-semibold cursor-pointer w-full">Register</button>
              </form>
           </div>
      </section>

@@ -11,12 +11,12 @@ function Footer() {
                     </div>
                     <div className="grid grid-cols-2 text-white md:w-1/4 w-full justify-items-end md:justify-items-center gap-2 md:gap-0">
                     
-                         <a href="/" className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Home</a>
+                         <a href="/"  target='_blank' className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Home</a>
                          <a href="https://www.linkedin.com/company/106349919/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BzqdsNmZ0QeG2CSEVnx5BGw%3D%3D" target="_blank" className="font-semibold hover:text-bright-blue">LinkedIn</a>
-                         <a href="" className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Facebook</a>
-                         <a href="" className="font-semibold hover:text-bright-blue">X</a>
-                         <a href=""  className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Instagram</a>
-                         <a href="" className="font-semibold hover:text-bright-blue">Tiktok</a>
+                         <a href="https://www.facebook.com/share/15MK5rNHMg/"  target='_blank' className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Facebook</a>
+                         <a href="https://x.com/eazifytech?t=2q9jIy-RSl8ncnFkihrYnw&s=09"  target='_blank' className="font-semibold hover:text-bright-blue">X</a>
+                         <a href="https://www.instagram.com/eazifyinnovations?igsh=cm52Ynd3bXdxN3Qy"   target='_blank' className="justify-self-start md:justify-self-center font-semibold hover:text-bright-blue">Instagram</a>
+                         <a href="https://vm.tiktok.com/ZMSecUcWp/" target='_blank'  className="font-semibold hover:text-bright-blue">Tiktok</a>
 
                     </div>
                </div>

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import { motion } from "motion/react";
 
 function Header() {
 
@@ -39,7 +40,7 @@ function Header() {
                               <li className="font-semibold"><a onClick={(e) => {handleSmoothScroll(e,'footer')}} href="#footer"  className="hover:text-bright-blue">Contact</a></li>
                     </ul>
                     <div className="ml-auto">
-                         <button className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" onClick={(e) => {handleSmoothScroll(e,'form')}}>Register Here</button>
+                         <motion.button whileHover={{scale:1.1}} className="px-6 py-3 font-semibold text-white rounded-full cursor-pointer bg-sky-blue hover:bg-bright-blue" onClick={(e) => {handleSmoothScroll(e,'form')}}>Register Here</motion.button>
                     </div>
                     
                </nav>
