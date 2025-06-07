@@ -4,7 +4,7 @@ import FooterDetails from "./FooterDetails"
 function Footer() {
   return (
      <section id='footer' className="p-4 md:px-0">
-          <div className='container px-12 py-18 mx-auto bg-black rounded-2xl '>
+          <div className='container px-4 md:px-8 py-10 mx-auto bg-black rounded-2xl '>
                <div className="flex flex-col md:flex-row gap-16">
                     <div className="md:w-3/4">
                          <img src="/images/logo-2.png" alt="logo" className="md:w-3/4" />
